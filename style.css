@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+html,
+body {
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+body::-webkit-scrollbar {
+    width: 20px;
+    background: #2e3032;
+   
+}
+
+body::-webkit-scrollbar-thumb{
+    width: 100%;
+    background: #222222;
+    border-radius: 20px;
+}
+
+li {
+    list-style: none;
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+:root {
+    --font-family: Roboto,
+}
+
+.wrapper {
+    width: 100vw;
+    min-height: 100vh;
+    background: #18181b;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+.header {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.title {
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 20px;
+    user-select: none;
+    font-size: 14px;
+}
+
+.telegram_link {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 5px;
+}
+
+.telegram_icon {
+    width: 20px;
+    height: 20px;
+}
+
+.main_content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.grafic_list {
+    width: 100%;
+    display: flex;
+}
+
+.grafic {
+    width: 31%;
+    height: 210px;
+    padding: 15px 20px;
+    margin: 10px;
+    background: #2e3032;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+    box-shadow: 0px 0px 1 px 1px #222222;
+}
+
+.grafic_name {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 10px;
+    font-size: 17px;
+    color: #b5b5b5;
+}
+
+.grafic_icon {
+    width: 21px;
+    height: 21px;
+}
+
+.grafic_frame_canvas {
+    height: 80%;
+    display: flex;
+    align-items: end;
+    justify-content: right;
+    transform: translateX(5px);
+}
+
+#daily_total_wallets,
+#daily_total_points {
+    width: 100%;
+}
+
+.daily_points_data_integrity_info {
+    width: max-content;
+    height: 100%;
+    transform: translateX(-20px) translateY(10px);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: start;
+    line-height: 30px;
+    font-size: 12px;
+    color: #dfdfdf;
+}
+
+#doughnut_chart_info,
+#doughnut_chart_info2 {
+    width: max-content;
+    height: 100%;
+    transform: translateX(-21%) translateY(10px);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: start;
+    gap: 15px;
+    font-size: 13px;
+    font-weight: 400;
+    color: #dfdfdf;
+
+}
+
+#doughnut_chart_info2 {
+    transform: translateX(-45%) translateY(5px);
+}
+
+.top_wallets_title{
+    margin-bottom: 0px;
+}
+
+.wallets_list {
+    width: 100%;
+    height: 900px;
+    padding: 70px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    overflow-y: auto;
+}
+
+.wallets_list::-webkit-scrollbar {
+    width: 10px;
+    background: #2e3032;
+    border-radius: 10px;
+}
+
+.wallets_list::-webkit-scrollbar-thumb {
+    background: #407ece;
+    border-radius: 20px;
+}
+
+.top_wallets_title {
+    font-size: 45px;
+    width: 97.5%;
+    display: flex;
+    justify-content: left;
+}
+
+.wallet {
+    width: 95%;
+    background: #2e3032;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 15px 20px 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: .3s ease;
+    box-shadow: 0px 0px 0px 0px #407ece00;
+    border: 1px solid #407ece00;
+}
+
+.wallet:hover {
+    box-shadow: 0px 0px 110px 10px #407ece57;
+    border-color: #407ece7c
+}
+
+.address {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 5px;
+    color: #407ece;
+}
+
+.waletts_num {
+    color: #fff;
+}
+
+.point {
+    color: #ffde60;
+}
