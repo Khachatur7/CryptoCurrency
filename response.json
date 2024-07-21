@@ -168,6 +168,74 @@
         {
             "address": "0x019e6fb977629a82a30e2da821b6b04731e6183a",
             "points_increase": 90.0
+        },
+        {
+            "address": "0xe49781e6186214d88aacfd9ebc8ce40e3cdc066d",
+            "points_increase": 9974.0
+        },
+        {
+            "address": "0x5940a60866255031830aa1edfdd8b56ab39765b7",
+            "points_increase": 1228.0
+        },
+        {
+            "address": "0x2a1dfff29cce9a13eb356f27a43ed9802bc6f040",
+            "points_increase": 1220.0
+        },
+        {
+            "address": "0xc3c07d7ac1503a7df1a24d2925b8938041bd1945",
+            "points_increase": 991.0
+        },
+        {
+            "address": "0x14f65d59c70c8bf97aabf057d18f5e5fb059a7b2",
+            "points_increase": 900.0
+        },
+        {
+            "address": "0xe652291579c2ae2791745b1b35803af913e25ab0",
+            "points_increase": 853.0
+        },
+        {
+            "address": "0x097bcb11ef822637fe83b9dd68079af40a9075a5",
+            "points_increase": 811.0
+        },
+        {
+            "address": "0x1e6d468ef2312f74c1dff5d546c76830f0db1217",
+            "points_increase": 790.0
+        },
+        {
+            "address": "0x019e6fb977629a82a30e2da821b6b04731e6183a",
+            "points_increase": 303.0
+        },
+        {
+            "address": "0x5940a60866255031830aa1edfdd8b56ab39765b7",
+            "points_increase": 248.0
+        },
+        {
+            "address": "0x2a1dfff29cce9a13eb356f27a43ed9802bc6f040",
+            "points_increase": 220.0
+        },
+        {
+            "address": "0xc3c07d7ac1503a7df1a24d2925b8938041bd1945",
+            "points_increase": 190.01
+        },
+        {
+            "address": "0x14f65d59c70c8bf97aabf057d18f5e5fb059a7b2",
+            "points_increase": 153.0
+        },
+        {
+            "address": "0xe652291579c2ae2791745b1b35803af913e25ab0",
+            "points_increase": 124.0
+        },
+        {
+            "address": "0x097bcb11ef822637fe83b9dd68079af40a9075a5",
+            "points_increase": 120.0
+        },
+        {
+            "address": "0x1e6d468ef2312f74c1dff5d546c76830f0db1217",
+            "points_increase": 110.0
+        },
+        {
+            "address": "0x019e6fb977629a82a30e2da821b6b04731e6183a",
+            "points_increase": 90.0
         }
     ]
 }

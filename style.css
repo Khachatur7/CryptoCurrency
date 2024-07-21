@@ -20,15 +20,15 @@ body {
     font-size: 15px;
     letter-spacing: 1px;
     color: #ffffff;
+    overflow-y: auto;
 }
 
 body::-webkit-scrollbar {
     width: 20px;
     background: #2e3032;
-   
 }
 
-body::-webkit-scrollbar-thumb{
+body::-webkit-scrollbar-thumb {
     width: 100%;
     background: #222222;
     border-radius: 20px;
@@ -45,7 +45,17 @@ a {
 }
 
 :root {
-    --font-family: Roboto,
+    --font-family: Roboto;
+    --chart-padding-l: 5;
+    --chart-padding-r: 10;
+    --chart-padding-t: 15;
+    --chart-padding-b: 5;
+    --height-for-first-chart: 420;
+    --height-chart: 450;
+    --first-chart-width: 550;
+    --chart-width: 160;
+    --tick-size: 11;
+
 }
 
 .wrapper {
@@ -97,13 +107,8 @@ a {
 .main_content {
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 10px;
-}
-
-.grafic_list {
-    width: 100%;
-    display: flex;
 }
 
 .grafic {
@@ -118,6 +123,11 @@ a {
     justify-content: space-between;
     align-items: end;
     box-shadow: 0px 0px 1 px 1px #222222;
+}
+
+.doughnut_chart {
+    position: relative;
+    width: 100%;
 }
 
 .grafic_name {
@@ -151,52 +161,58 @@ a {
 .daily_points_data_integrity_info {
     width: max-content;
     height: 100%;
-    transform: translateX(-20px) translateY(10px);
+    transform: translateX(8.5px) translateY(10px);
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    align-items: start;
+    align-items: center;
     justify-content: start;
     line-height: 30px;
-    font-size: 12px;
+    font-size: 14px;
     color: #dfdfdf;
 }
 
 #doughnut_chart_info,
 #doughnut_chart_info2 {
-    width: max-content;
+    position: absolute;
+    left: 0px;
+    top: -10px;
+    width: 60%;
     height: 100%;
-    transform: translateX(-21%) translateY(10px);
+    margin-left: -10%;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: start;
     justify-content: start;
     gap: 15px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 400;
     color: #dfdfdf;
-
 }
 
-#doughnut_chart_info2 {
-    transform: translateX(-45%) translateY(5px);
+.top_wallets_title {
+    font-size: 45px;
+    width: 97.5%;
+    display: flex;
+    justify-content: left;
 }
 
-.top_wallets_title{
-    margin-bottom: 0px;
+.top_wallets {
+    width: 100%;
 }
 
 .wallets_list {
     width: 100%;
-    height: 900px;
-    padding: 70px 0px;
+    height: 600px;
+    padding: 60px 0px;
+    margin-bottom: 50px;
     display: flex;
-    flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .wallets_list::-webkit-scrollbar {
@@ -210,18 +226,67 @@ a {
     border-radius: 20px;
 }
 
-.top_wallets_title {
-    font-size: 45px;
-    width: 97.5%;
+
+#left__wallet_list,
+#right__wallet_list {
+    width: 50%;
+    height: 100%;
     display: flex;
-    justify-content: left;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    margin-left: 1%;
+}
+
+#wallets_list_for_mobile {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#wallets_list_for_mobile .wallet {
+    padding: 5px;
+    font-size: 9px;
+    align-items: center;
+}
+
+#wallets_list_for_mobile .wallet .address {
+    padding: 10px;
+    font-size: 8px;
+}
+
+#wallets_list_for_mobile .wallet .point_increase {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    font-size: 7px;
+}
+
+#wallets_list_for_mobile::-webkit-scrollbar {
+    width: 5px;
+    background: #2e3032;
+    border-radius: 10px;
+}
+
+#wallets_list_for_mobile::-webkit-scrollbar-thumb {
+    background: #407ece;
+    border-radius: 20px;
 }
 
 .wallet {
     width: 95%;
     background: #2e3032;
     display: flex;
-    flex-direction: column;
     align-items: start;
     justify-content: space-between;
     gap: 10px;
@@ -252,4 +317,523 @@ a {
 
 .point {
     color: #ffde60;
+}
+
+@media (max-width:1800px) {
+
+    #doughnut_chart_info,
+    #doughnut_chart_info2 {
+        top: -15px;
+        left: 15px;
+    }
+
+    .daily_points_data_integrity_info {
+        transform: translateX(-7px) translateY(10px);
+        font-size: 14px;
+    }
+}
+
+@media (max-width:1750px) {
+
+    .daily_points_data_integrity_info {
+        transform: translateX(-2px) translateY(10px);
+        font-size: 13px;
+    }
+}
+
+
+@media (max-width:1450px) {
+
+    #doughnut_chart_info,
+    #doughnut_chart_info2 {
+        top: -12px;
+        left: 5px;
+    }
+
+    .wallet {
+        font-size: 15px;
+        padding: 15px 20px;
+    }
+
+}
+
+@media (max-width:1350px) {
+
+    #doughnut_chart_info,
+    #doughnut_chart_info2 {
+        top: -10px;
+        left: -10px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width:1250px) {
+
+    #doughnut_chart_info,
+    #doughnut_chart_info2 {
+        top: -10px;
+        left: 15px;
+        font-size: 13px;
+    }
+
+    :root {
+        --chart-padding-l: 0;
+        --chart-padding-r: 5;
+        --chart-padding-t: 15;
+        --chart-padding-b: 5;
+        --height-for-first-chart: 440;
+        --first-chart-width: 50;
+        --chart-width: -300;
+    }
+
+    .main_content {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+
+    .grafic_list {
+        flex-wrap: wrap;
+    }
+
+    .grafic {
+        width: 45%;
+    }
+}
+
+@media (max-width:1100px) {
+    :root {
+        --height-for-first-chart: 470;
+        --height-chart: 450;
+    }
+
+    .title {
+        font-size: 35px;
+    }
+
+    .wallet {
+        font-size: 9px;
+    }
+}
+
+@media (max-width:980px) {
+    .daily_points_data_integrity_info {
+        transform: translateX(-10px) translateY(10px);
+        font-size: 11px;
+        line-height: 25px;
+    }
+
+    #doughnut_chart_info,
+    #doughnut_chart_info2 {
+        top: -10px;
+        left: -5px;
+        font-size: 11px;
+    }
+
+    :root {
+        --height-for-first-chart: 390;
+        --height-chart: 400;
+        --first-chart-width: 100;
+        --chart-width: -240;
+        --tick-size: 9;
+    }
+
+    .grafic {
+        height: 190px;
+    }
+
+
+}
+
+@media (max-width:900px) {
+    .grafic_icon img {
+        width: 20px;
+        height: 20px;
+    }
+
+    #doughnut_chart_info,
+    #doughnut_chart_info2 {
+        top: -15px;
+        left: -10px;
+        font-size: 9px;
+    }
+
+    :root {
+        --first-chart-width: 120;
+        --chart-width: -200;
+    }
+
+    .title {
+        font-size: 30px;
+    }
+
+    .links {
+        font-size: 12px;
+    }
+}
+
+@media (max-width:800px) {
+
+    .grafic {
+        margin: 5px;
+        height: 170px;
+        padding: 15px 20px;
+    }
+
+    .daily_points_data_integrity_info {
+        font-size: 10px;
+    }
+
+    #doughnut_chart_info,
+    #doughnut_chart_info2 {
+        top: -5px;
+        left: -10px;
+        font-size: 9px;
+        gap: 8px;
+    }
+
+    :root {
+        --first-chart-width: 0;
+        --chart-width: -450;
+    }
+
+    .wallet {
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        font-size: 9px;
+        padding: 5px 15px;
+        border-radius: 10px;
+    }
+
+
+    .wallets_list::-webkit-scrollbar {
+        width: 5px;
+        margin-left: -10px;
+    }
+}
+
+
+@media (max-width:770px) {
+
+    .grafic {
+        margin: 5px;
+        height: 170px;
+        padding: 15px 20px;
+    }
+
+    .daily_points_data_integrity_info {
+        font-size: 10px;
+    }
+
+    #doughnut_chart_info,
+    #doughnut_chart_info2 {
+        top: -5px;
+        left: -20px;
+        font-size: 9px;
+        gap: 7px;
+    }
+
+    :root {
+        --height-for-first-chart: 430;
+        --height-chart: 460;
+        --first-chart-width: 0;
+        --chart-width: -450;
+    }
+
+    .top_wallets_title {
+        font-size: 35px;
+    }
+
+    .wallet {
+        font-size: 8px;
+    }
+
+}
+
+@media (max-width:650px) {
+
+    .links {
+        font-size: 9px;
+        gap: 5px;
+    }
+
+    .telegram_icon img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .main_content {
+        flex-direction: column;
+    }
+
+    .grafic {
+        margin: 0px 1% 5px 13%;
+        height: 170px;
+        padding: 15px 15px;
+        width: 400px;
+    }
+
+    #doughnut_chart_info,
+    #doughnut_chart_info2 {
+        top: -15px;
+        left: 0px;
+        font-size: 9px;
+    }
+
+    :root {
+        --height-for-first-chart: 260;
+        --height-chart: 320;
+        --first-chart-width: 0;
+        --chart-width: -450;
+    }
+}
+
+@media (max-width:600px) {
+    .grafic {
+        width: 450px;
+        height: 160px;
+        margin-left: 3%;
+    }
+
+    :root {
+        --height-for-first-chart: 170;
+        --height-chart: 270;
+        --first-chart-width: 0;
+        --chart-width: -570;
+    }
+
+    .top_wallets_title {
+        font-size: 30px;
+    }
+
+    .wallets_list {
+        visibility: hidden;
+        display: none;
+    }
+
+    #wallets_list_for_mobile {
+        visibility: visible;
+        display: flex;
+        width: 100%;
+        height: 600px;
+    }
+
+    #wallets_list_for_mobile .wallet {
+        padding: 5px;
+        font-size: 9px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 15px;
+    }
+
+    #wallets_list_for_mobile .wallet .address {
+        font-size: 8px;
+    }
+
+    #wallets_list_for_mobile .wallet .point_increase {
+        font-size: 10px;
+    }
+
+    #wallets_list_for_mobile::-webkit-scrollbar {
+        width: 3px;
+    }
+}
+
+@media (max-width:510px) {
+
+    :root {
+        --height-for-first-chart: 160;
+        --height-chart: 280;
+        --first-chart-width: 0;
+        --chart-width: -640;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 0;
+        height: 90px;
+    }
+
+    .title {
+        font-size: 35px;
+    }
+
+    .links {
+        font-size: 13px;
+        margin-top: -25px;
+    }
+
+    .grafic {
+        margin-left: -2.5%;
+        padding: 10px 10px 5px 10px;
+    }
+
+    .daily_points_data_integrity_info {
+        font-size: 9px;
+    }
+
+    #doughnut_chart_info,
+    #doughnut_chart_info2 {
+        top: -15px;
+        left: 5px;
+        font-size: 10px;
+        gap: 7px;
+    }
+
+    .wallets_list {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+
+@media (min-width:400px) and (max-width:450px) {
+    :root {
+        --height-for-first-chart: 170;
+        --height-chart: 330;
+        --chart-width: -660;
+    }
+
+    .grafic {
+        width: 350px;
+        height: 140px;
+        margin-left: 0%;
+    }
+
+    .grafic_name {
+        font-size: 11px;
+        gap: 6px;
+    }
+
+
+}
+
+@media (min-width:350px) and (max-width:400px) {
+    :root {
+        --height-for-first-chart: 180;
+        --height-chart: 350;
+        --first-chart-width: 0;
+        --chart-width: -680;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 0;
+        height: 50px;
+        margin-bottom: 70px;
+    }
+
+    .title {
+        font-size: 30px;
+    }
+
+    .links {
+        font-size: 10px;
+        margin-top: -25px;
+    }
+
+    .grafic {
+        width: 310px;
+        height: 140px;
+
+        margin-left: -2%;
+    }
+
+    .grafic_icon img {
+        width: 17px;
+        height: 17px;
+    }
+
+    .grafic_name {
+        font-size: 14px;
+    }
+
+    .daily_points_data_integrity_info {
+        font-size: 9px;
+    }
+
+    #doughnut_chart_info,
+    #doughnut_chart_info2 {
+        top: -15px;
+        left: -10px;
+        font-size: 8px;
+        gap: 6px;
+    }
+
+
+
+}
+
+
+@media (max-width:350px) {
+    :root {
+        --height-for-first-chart: 160;
+        --height-chart: 320;
+        --first-chart-width: 0;
+        --chart-width: -710;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 0;
+        height: 50px;
+        margin-bottom: 70px;
+    }
+
+    .title {
+        font-size: 30px;
+    }
+
+    .links {
+        font-size: 10px;
+        margin-top: -25px;
+    }
+
+    .grafic {
+        width: 290px;
+        height: 120px;
+        margin-left: -2%;
+    }
+
+    .grafic_icon img {
+        width: 17px;
+        height: 17px;
+    }
+
+    .grafic_name {
+        font-size: 14px;
+    }
+
+    .daily_points_data_integrity_info {
+        font-size: 9px;
+    }
+
+    #doughnut_chart_info,
+    #doughnut_chart_info2 {
+        top: -15px;
+        left: -10px;
+        font-size: 8px;
+        gap: 6px;
+    }
+
+    #wallets_list_for_mobile {
+        visibility: visible;
+        display: flex;
+    }
+
+    #wallets_list_for_mobile .wallet {
+        padding: 0px;
+        font-size: 9px;
+        align-items: center;
+    }
+
+    #wallets_list_for_mobile .wallet .address {
+        font-size: 5px;
+    }
 }
